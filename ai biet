@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="container">
+        <img
+            src="https://i.pinimg.com/736x/e6/57/da/e657dae5f1c9fc4d1a01f0ab01f376c1.jpg"
+            alt="Hình ảnh từ Pinterest"
+            class="main-image"
+        >
+    </main>
+</body>
+</html>

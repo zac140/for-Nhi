@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Nhi ❤️</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background: #ffe6f0;
+    overflow: hidden;
+}
+
+.box {
+    width: 420px;
+    padding: 30px;
+    text-align: center;
+    background: white;
+    border-radius: 30px;
+    box-shadow: 0 15px 40px rgba(200, 70, 120, 0.25);
+}
+
+/* CON MÈO */
+
+.cat {
+    width: 190px;
+    height: 190px;
+    object-fit: contain;
+    animation: nhay 1.2s infinite ease-in-out;
+}
+
+@keyframes nhay {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-18px) rotate(3deg);
+    }
+}
+
+h1 {
+    color: #d94f7c;
+    font-size: 28px;
+    margin: 15px 0 25px;
+}
+
+button {
+    border: none;
+    padding: 14px 30px;
+    margin: 8px;
+    border-radius: 14px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    transform: scale(1.08);
+}
+
+.yes {
+    background: #5fd49b;
+}
+
+.no {
+    background: #e95c6b;
+}
+
+.real {
+    background: #f45b91;
+}
+
+.fake {
+    background: #7560d9;
+}
+
+/* Ẩn các màn */
+
+.hidden {
+    display: none;
+}
+
+/* Chữ cuối */
+
+.final {
+    font-size: 32px;
+    font-weight: bold;
+    color: #e84f7d;
+    animation: hienlen 0.8s ease;
+}
+
+@keyframes hienlen {
+    from {
+        transform: scale(0);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+/* Tim */
+
+.heart {
+    position: fixed;
+    top: -30px;
+    font-size: 25px;
+    animation: roi 4s linear forwards;
+    pointer-events: none;
+}
+
+@keyframes roi {
+    from {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <!-- CON MÈO -->
+    <img src="cat.png" class="cat">
+
+    <!-- CÂU 1 -->
+    <div id="cau1">
+
+        <h1>Nhi có thik Đạt hămm ❤️</h1>
+
+        <button class="yes" onclick="cau2()">
+            YES 💗
+        </button>
+
+        <button class="no" onclick="chay(this)">
+            NO 😭
+        </button>
+
+    </div>
+
+
+    <!-- CÂU 2 -->
+    <div id="cau2" class="hidden">
+
+        <h1>Nhi có chắc hăm? 🥺</h1>
+
+        <button class="yes" onclick="cau3()">
+            YES ❤️
+        </button>
+
+        <button class="no" onclick="chay(this)">
+            NO 😭
+        </button>
+
+    </div>
+
+
+    <!-- CÂU 3 -->
+    <div id="cau3" class="hidden">
+
+        <h1>Đạt khum tin </h1>
+
+        <p style="font-size:20px;">
+            Nói thật ii
+        </p>
+
+        <button class="real" onclick="real()">
+            REAL ❤️
+        </button>
+
+        <button class="fake" onclick="fake()">
+            FAKE 💔
+        </button>
+
+    </div>
+
+
+    <!-- FAKE -->
+    <div id="fake" class="hidden">
+
+        <h1>Nu nu sai đáp án gòi </h1>
+
+        <p style="font-size:20px;">
+          
+        </p>
+
+        <button class="real" onclick="real()">
+            REAL ❤️
+        </button>
+
+    </div>
+
+
+    <!-- KẾT QUẢ -->
+    <div id="ketqua" class="hidden">
+
+        <div class="final">
+            Đạt cũm iu Nhi lắm ❤️
+        </div>
+
+        <p style="font-size:30px;">
+            🥰🥰
+        </p>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* Ẩn tất cả */
+
+function anTatCa() {
+
+    document
+        .querySelectorAll("#cau1, #cau2, #cau3, #fake, #ketqua")
+        .forEach(function(x) {
+            x.classList.add("hidden");
+        });
+
+}
+
+
+/* YES câu 1 */
+
+function cau2() {
+
+    anTatCa();
+
+    document
+        .getElementById("cau2")
+        .classList.remove("hidden");
+
+}
+
+
+/* YES câu 2 */
+
+function cau3() {
+
+    anTatCa();
+
+    document
+        .getElementById("cau3")
+        .classList.remove("hidden");
+
+}
+
+
+/* REAL */
+
+function real() {
+
+    anTatCa();
+
+    document
+        .getElementById("ketqua")
+        .classList.remove("hidden");
+
+    taoTim();
+
+}
+
+
+/* FAKE */
+
+function fake() {
+
+    anTatCa();
+
+    document
+        .getElementById("fake")
+        .classList.remove("hidden");
+
+}
+
+
+/* Nút NO chạy trốn */
+
+function chay(button) {
+
+    button.style.position = "fixed";
+
+    let x =
+        Math.random() *
+        (window.innerWidth - 150);
+
+    let y =
+        Math.random() *
+        (window.innerHeight - 80);
+
+    button.style.left = x + "px";
+    button.style.top = y + "px";
+
+}
+
+
+/* Tạo tim */
+
+function taoTim() {
+
+    for (let i = 0; i < 35; i++) {
+
+        setTimeout(function() {
+
+            let tim =
+                document.createElement("div");
+
+            tim.className = "heart";
+
+            let danhSach = [
+                "❤️",
+                "💕",
+                "💗",
+                "💖",
+                "💘"
+            ];
+
+            tim.innerHTML =
+                danhSach[
+                    Math.floor(
+                        Math.random() *
+                        danhSach.length
+                    )
+                ];
+
+            tim.style.left =
+                Math.random() * 100 + "vw";
+
+            tim.style.animationDuration =
+                (3 + Math.random() * 3) + "s";
+
+            document.body.appendChild(tim);
+
+            setTimeout(function() {
+                tim.remove();
+            }, 6000);
+
+        }, i * 120);
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>

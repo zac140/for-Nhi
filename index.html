@@ -30,12 +30,11 @@ body {
     box-shadow: 0 15px 40px rgba(200, 70, 120, 0.25);
 }
 
-/* CON MÈO */
-
 .cat {
     width: 190px;
     height: 190px;
     object-fit: contain;
+    border-radius: 20px;
     animation: nhay 1.2s infinite ease-in-out;
 }
 
@@ -87,13 +86,9 @@ button:hover {
     background: #7560d9;
 }
 
-/* Ẩn các màn */
-
 .hidden {
     display: none;
 }
-
-/* Chữ cuối */
 
 .final {
     font-size: 32px;
@@ -111,8 +106,6 @@ button:hover {
         transform: scale(1);
     }
 }
-
-/* Tim */
 
 .heart {
     position: fixed;
@@ -140,10 +133,13 @@ button:hover {
 
 <div class="box">
 
-    <!-- CON MÈO -->
-    <img src="cat.png" class="cat">
+    <img
+        id="anh"
+        src="https://i.pinimg.com/736x/aa/6b/3a/aa6b3a05e69d6582c5bdf492424b3443.jpg"
+        class="cat"
+        alt="Ảnh minh họa"
+    >
 
-    <!-- CÂU 1 -->
     <div id="cau1">
 
         <h1>Nhi có thik Đạt hămm ❤️</h1>
@@ -158,8 +154,6 @@ button:hover {
 
     </div>
 
-
-    <!-- CÂU 2 -->
     <div id="cau2" class="hidden">
 
         <h1>Nhi có chắc hăm? 🥺</h1>
@@ -174,11 +168,9 @@ button:hover {
 
     </div>
 
-
-    <!-- CÂU 3 -->
     <div id="cau3" class="hidden">
 
-        <h1>Đạt khum tin </h1>
+        <h1>Đạt khum tin</h1>
 
         <p style="font-size:20px;">
             Nói thật ii
@@ -194,15 +186,11 @@ button:hover {
 
     </div>
 
-
-    <!-- FAKE -->
     <div id="fake" class="hidden">
 
-        <h1>Nu nu sai đáp án gòi </h1>
+        <h1>Nu nu sai đáp án gòi</h1>
 
-        <p style="font-size:20px;">
-          
-        </p>
+        <p style="font-size:20px;"></p>
 
         <button class="real" onclick="real()">
             REAL ❤️
@@ -210,8 +198,6 @@ button:hover {
 
     </div>
 
-
-    <!-- KẾT QUẢ -->
     <div id="ketqua" class="hidden">
 
         <div class="final">
@@ -226,143 +212,83 @@ button:hover {
 
 </div>
 
-
 <script>
+const anh = document.getElementById("anh");
 
-/* Ẩn tất cả */
+const anhBanDau =
+    "https://i.pinimg.com/736x/aa/6b/3a/aa6b3a05e69d6582c5bdf492424b3443.jpg";
+
+const anhReal =
+    "https://i.pinimg.com/736x/a1/56/b6/a156b6ade4c580e24faf65cefb4863cb.jpg";
+
+const anhFake =
+    "https://i.pinimg.com/736x/d2/db/5f/d2db5f998dffc95b9abeca9437514bf5.jpg";
 
 function anTatCa() {
-
     document
         .querySelectorAll("#cau1, #cau2, #cau3, #fake, #ketqua")
         .forEach(function(x) {
             x.classList.add("hidden");
         });
-
 }
-
-
-/* YES câu 1 */
 
 function cau2() {
-
+    anh.src = anhBanDau;
     anTatCa();
-
-    document
-        .getElementById("cau2")
-        .classList.remove("hidden");
-
+    document.getElementById("cau2").classList.remove("hidden");
 }
-
-
-/* YES câu 2 */
 
 function cau3() {
-
+    anh.src = anhBanDau;
     anTatCa();
-
-    document
-        .getElementById("cau3")
-        .classList.remove("hidden");
-
+    document.getElementById("cau3").classList.remove("hidden");
 }
-
-
-/* REAL */
 
 function real() {
-
+    anh.src = anhReal;
     anTatCa();
-
-    document
-        .getElementById("ketqua")
-        .classList.remove("hidden");
-
+    document.getElementById("ketqua").classList.remove("hidden");
     taoTim();
-
 }
-
-
-/* FAKE */
 
 function fake() {
-
+    anh.src = anhFake;
     anTatCa();
-
-    document
-        .getElementById("fake")
-        .classList.remove("hidden");
-
+    document.getElementById("fake").classList.remove("hidden");
 }
 
-
-/* Nút NO chạy trốn */
-
 function chay(button) {
-
     button.style.position = "fixed";
 
-    let x =
-        Math.random() *
-        (window.innerWidth - 150);
-
-    let y =
-        Math.random() *
-        (window.innerHeight - 80);
+    let x = Math.random() * (window.innerWidth - 150);
+    let y = Math.random() * (window.innerHeight - 80);
 
     button.style.left = x + "px";
     button.style.top = y + "px";
-
 }
 
-
-/* Tạo tim */
-
 function taoTim() {
-
     for (let i = 0; i < 35; i++) {
-
         setTimeout(function() {
-
-            let tim =
-                document.createElement("div");
-
+            let tim = document.createElement("div");
             tim.className = "heart";
 
-            let danhSach = [
-                "❤️",
-                "💕",
-                "💗",
-                "💖",
-                "💘"
-            ];
+            let danhSach = ["❤️", "💕", "💗", "💖", "💘"];
 
             tim.innerHTML =
-                danhSach[
-                    Math.floor(
-                        Math.random() *
-                        danhSach.length
-                    )
-                ];
+                danhSach[Math.floor(Math.random() * danhSach.length)];
 
-            tim.style.left =
-                Math.random() * 100 + "vw";
-
-            tim.style.animationDuration =
-                (3 + Math.random() * 3) + "s";
+            tim.style.left = Math.random() * 100 + "vw";
+            tim.style.animationDuration = (3 + Math.random() * 3) + "s";
 
             document.body.appendChild(tim);
 
             setTimeout(function() {
                 tim.remove();
             }, 6000);
-
         }, i * 120);
-
     }
-
 }
-
 </script>
 
 </body>
